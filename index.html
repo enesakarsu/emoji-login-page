@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji - Login Page</title>
+    <link rel="stylesheet" href="./assets/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="./assets/css/app.css"/>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="d-flex justify-content-center align-items-center mh-vh">
+            <div class="col-md-5 my-auto">
+                <div class="card login-card">
+                    <div class="card-body py-4 px-4">
+                        <div class="d-flex flex-column w-100 text-center justify-content-center align-items-center ">
+                        	<h5>HESABINA GİRİŞ YAP</h5>
+                        <small class="text-soft">www.websiteaddress.com</small>
+                            <div class="emoji-area">
+                                <img src="assets/img/happy.gif" alt="" class="img-fluid emoji mb-3" id="emoji">
+                                <div>
+                                    <h4 id="emoji-msg">Hey! Oturum açman için bazı bilgiler gerekli.</h4>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <form id="login_form">
+                            <div class="form-group">
+                            	<label>Kullanıcı adı veya e-posta adresi:</label>
+                                <input type="text" name="username" class="form-control" placeholder="Kullanıcı adı veya e-posta adresi..." />
+                            </div>
+
+                            <div class="form-group">
+                            	<label>Parola:</label>
+                                <input type="password" name="password" class="form-control d-block" placeholder="Parola..."/>
+                            </div>
+
+                            <div class="form-group text-right mt-4">
+                                <button type="button" class="btn btn-dark btn-login" id="loginBtn"><i class="fa fa-sign-in-alt"></i> Oturum Aç</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="./assets/libs/jquery/jquery-3.6.0.min.js"></script>
+    <script src="./assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+    <script>
+        
+        $("#loginBtn").on("click", function(){
+        	let loginForm = $("#login_form").serialize();
+        
+        /* AJAX LOGIN SAMPLE */
+        /*
+        $.ajax({
+	        url: "",
+			type: "POST",
+			data: loginForm,
+			success: function(e){
+				if(e.trim() == ""){
+					loginEmpty();
+				}else{
+					if(e == "loggined"){
+						loginSuccess();
+					}else{
+						loginError();
+					}
+				}
+			}
+        });
+        */
+        
+        /* EXAMPLE LOGIN CONTROL FOR DEMO */
+        if(loginForm == "username=&password="){
+        	loginEmpty();
+        }else{
+	        if(loginForm == "username=enesakarsu&password=1234"){
+		        loginSuccess();
+	        }else{
+		        loginError();
+	        }
+		}
+        
+        });
+        
+    </script>
+</body>
+</html>
